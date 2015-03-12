@@ -8,3 +8,4 @@ local function SvModules()
 		end
 	end
 end
+hook.Add("Initialize", "Sv_Modules_Hook", SvModules)
