@@ -1,5 +1,5 @@
 
-function GAMEMODE:HUDPaint()
+function GM:HUDPaint()
 
 draw.RoundedBox(4, 10, ScrH() - 5, 360, 210, Color(85, 0, 0, 255)) -- Outer Box
 draw.RoundedBox(4, 15, ScrH() - 10, 350, 200, Color(170, 57, 57, 255)) -- Inner box
