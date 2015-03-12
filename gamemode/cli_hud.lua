@@ -27,3 +27,21 @@ draw.RoundedBox(0, 185 - widthap/2, ScrH() - 345, math.Clamp(LocalPlayer():Armor
 draw.DrawText(LocalPlayer():GetName(), "DermaLarge", 140, ScrH() - 485, Color(255, 255, 255, 255))
 end
 hook.Add("HUDPaint", "survival_hud", survival_hud)
+
+local hideHUDElements = {
+	["CHudAmmo"] = true,
+	["CHudSecondaryAmmo"] = true,
+	["CHudBattery"] = true, 
+	["CHudHealth"] = true, 
+	
+}
+
+function HideHUDS(hide)
+	if hideHUDElements[hide] then return false end
+end
+hook.Add( "HUDShouldDraw", "HideRegHUD", HideHUDS )
+
+hook.Add("HUDDrawTargetID", "HMHUD", function()
+	return
+end)
+
