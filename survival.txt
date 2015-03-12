@@ -1,0 +1,13 @@
+"survival"
+{
+	"base"		"base"
+    "title"  "Survival"
+    "version"   "Dev Build 1.0"
+
+    "author_name"   "Nikorev, Helix, SPD Best"
+    "author_email"  ""
+
+    "icon"  ""
+    "info"  ""
+    "hide"  "0"
+}
