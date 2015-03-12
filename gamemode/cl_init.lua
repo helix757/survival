@@ -9,3 +9,8 @@ local function ClModules()
 	end
 end
 hook.Add("Initialize", "Cl_Modules_Hook", ClModules) 
+
+local function IncludeFiles()
+	include(data:ReadString())
+end
+usermessage.Hook( "IncludeClient", IncludeFiles )
