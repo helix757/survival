@@ -36,7 +36,7 @@ draw.RoundedBox(0, ScrW() - 185 - widthhp/2, ScrH() - 135, math.Clamp(LocalPlaye
 draw.RoundedBox(0, ScrW() - 185 - widthap/2, ScrH() - 85, math.Clamp(LocalPlayer():Armor() * 3, 5, 300), 40, Color(255, 170, 170, 255)) -- Armor bar
 
 
-draw.DrawText(LocalPlayer():GetName(), "BigBloodImpact", ScrW() - 230, ScrH() - 225, Color(255, 255, 255, 255)) -- Name
+draw.DrawText(LocalPlayer():Nick(), "BigBloodImpact", ScrW() - 230, ScrH() - 225, Color(255, 255, 255, 255), TEXT_ALIGN_CENTER) -- Name
 draw.DrawText("HP", "BigBloodImpact", ScrW() - 325, ScrH() - 134, Color(255, 255, 255, 255)) -- HP
 draw.DrawText("AP", "BigBloodImpact", ScrW() - 325, ScrH() - 85, Color(255, 255, 255, 255)) -- AP
 
@@ -71,8 +71,8 @@ for b=1, 10 do -- Makes blur more dense
 	surface.SetMaterial( hex )
 	surface.DrawTexturedRect( 10, ScrH() - 135, 175, 100 )
 
-draw.DrawText("Ammo", "SmallBloodImpact", 30, ScrH() - 125, Color(255, 255, 255, 255)) -- Ammo Word
-draw.DrawText("250".."/".."200", "BigBloodImpact", 170, ScrH() - 85, Color(255, 255, 255, 255), TEXT_ALIGN_RIGHT) -- Ammo Counter
+draw.DrawText("Ammo", "SmallBloodImpact", 60, ScrH() - 125, Color(255, 255, 255, 255)) -- Ammo Word
+draw.DrawText("100".."/".."500", "BigBloodImpact", 95, ScrH() - 85, Color(255, 255, 255, 255), TEXT_ALIGN_CENTER) -- Ammo Counter
 
 -- Once guns and ammo are ready:
 /*if LocalPlayer():Clip1() != nil then
