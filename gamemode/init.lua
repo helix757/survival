@@ -27,4 +27,6 @@ local function AutoFastDL()
 	end
 end
 hook.Add("Initialize", "AutoFastDL", AutoFastDL)
+
 resource.AddFile("materials/blurgm.vmt")
+resource.AddFile("materials/heaxagon_pattern_v2.png")
