@@ -18,7 +18,6 @@ local Button = vgui.Create("DButton", Frame)
 		draw.RoundedBox(0, 0, 0, w, h, Color(255, 0, 0, 255) ) -- Draw a blue button
 	end
 	Button.DoClick = function()
-		ply:chat.AddText( ply, " has become a hunter", Color(255, 150, 0 ) )
 		player_manager.SetPlayerClass( ply, "Default" )
 		player_manager.OnPlayerSpawn( ply )
 	end
