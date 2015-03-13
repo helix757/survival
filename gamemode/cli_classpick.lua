@@ -19,7 +19,7 @@ local blah = vgui.Create("DButton")
 		draw.RoundedBox(0, 0, 0, w, h, Color(255, 0, 0, 255) ) 
 	end
 	blah.DoClick = function()
-		player_manager.SetPlayerClass( LocalPlayer(), "Default" )
+		player_manager.SetPlayerClass( LocalPlayer(), "Hunter" )
 		player_manager.OnPlayerSpawn( LocalPlayer() )
 	end
 end
