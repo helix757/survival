@@ -1,6 +1,7 @@
 
 util.AddNetworkString( "OpenClassDerma" )
-function GM:PlayerInitialSpawn(ply)
+function OpenDerma(ply)
 	net.Start( "OpenClassDerma" )
 	net.Send(ply)
 end
+hook.Add("PlayerInitialSpawn", "Open_Derma", OpenDerma)

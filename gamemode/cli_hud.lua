@@ -5,7 +5,7 @@ function survival_hud()
 draw.RoundedBox(4, 10, ScrH() - 500, 360, 210, Color(85, 0, 0, 255)) -- Outer Box
 draw.RoundedBox(4, 15, ScrH() - 495, 350, 200, Color(170, 57, 57, 255)) -- Inner box
 
-for i=1, 10 do -- Makes blur more dense
+for i=1, 10 do -- Makes blur more dense 
 		ourMat:SetFloat("$blur", Fraction)
 		ourMat:Recompute()
 		surface.SetDrawColor( 170, 57, 57, 255 )

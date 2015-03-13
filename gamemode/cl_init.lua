@@ -3,7 +3,7 @@ print("test.lua")
 local function ClModules()
 	for k,v in pairs(file.Find("survival/gamemode/*.lua", "LUA")) do
 		if string.sub(v,1,3) == "cli" then
-			Error("[CLI] Loaded clientside module "..v.."\n")
+			print("[CLI] Loaded clientside module "..v.."\n")
 			include(v)
 		end
 	end

@@ -1,25 +1,25 @@
 
 -- The start of the data saving of the player inventory.
-local function CreateFolders()
-  if not file.Exists(¨survival¨,¨DATA¨) then
-    file.CreateDir("survival")
-  end
+function CreateSurvFolders()
+	if not file.IsDir( "survival", "DATA" ) then
+		file.CreateDir("survival")
+		print("Folder Was Created!")
+	end
 end
-hook.Add(¨Initialize¨, ¨Create_Data_Folders¨)
-
+hook.Add("Initialize","CreateSurvFolders",CreateSurvFolders)
 
 local function CheckForDataFile( ply )
-  if file.Exists(¨survival/¨..ply:SteamID()..¨.txt¨,¨DATA¨) then
-     local json = util.JSONToTable(file.Read(¨survival/¨..ply:SteamID()..¨.txt¨,¨DATA¨))
+  if file.Exists("survival/"..ply:SteamID64()..".txt","DATA") then
+     local json = util.JSONToTable(file.Read("survival/"..ply:SteamID64()..".txt","DATA"))
      ply.data = json
   else
-    file.Write(¨survival/¨..SteamID()..¨.txt¨, ¨¨)
-    ply.data = util.JSONToTable(file.Read(¨survival/¨..ply:SteamID()..¨.txt¨,¨DATA¨))
+    file.Write("survival/"..ply:SteamID64()..".txt", "")
+    ply.data = nil
   end
 end
-hook.Add(¨PlayerInitialSpawn¨, ¨Data_Check¨, CheckForDataFile)
+hook.Add("PlayerInitialSpawn", "Data_Check", CheckForDataFile) 
 
-local meta = FindMetaTable(¨Player¨)
+local meta = FindMetaTable("Player")
 
 function meta:HasItem(item)
   if self.data[item] != nil then

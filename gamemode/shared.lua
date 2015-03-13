@@ -10,7 +10,7 @@ local function ShModules()
 		end
 	end
 end
-hook.Add("Initialize", "Sh_Modules_Hook", ShModules)
+ShModules()
 
 team.SetUp( 1, "Hunter", Color( 255, 0, 0 ) )
 team.SetUp( 2, "BowMan", Color( 0, 255, 255 ) )

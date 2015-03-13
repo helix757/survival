@@ -1,14 +1,14 @@
 include("shared.lua")
 
-local function SvModules()
-	for k,v in pairs(file.Find("gamemode/*.lua", "LUA")) do
+function svModules()
+	for k,v in pairs(file.Find("survival/gamemode/*.lua", "LUA")) do
 		if string.sub(v,1,2) == "sv" then
-			Error("[SV] Loaded serverside module "..v.."\n")
-			include(v)
+			Error("[CLI] Loaded serverside module "..v.."\n")
+			include("survival/gamemode/"..v)
 		end
 	end
 end
-hook.Add("Initialize", "Sv_Modules_Hook", SvModules)
+svModules()
 
 local function AddClModules()
 	for k,v in pairs(file.Find("survival/gamemode/*.lua", "LUA")) do
@@ -29,4 +29,4 @@ end
 hook.Add("Initialize", "AutoFastDL", AutoFastDL)
 
 resource.AddFile("materials/blurgm.vmt")
-resource.AddFile("materials/heaxagon_pattern_v2.png")
+resource.AddFile("materials/heaxagon_pattern_v2.png") 
