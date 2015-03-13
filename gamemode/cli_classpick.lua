@@ -26,13 +26,6 @@ end
 net.Receive("OpenClassDerma", ClassDerma)
 concommand.Add("class", ClassDerma)
 
-
-
-
-<<<<<<< HEAD
-
-=======
->>>>>>> parent of 65ef470... Added new stuff.
 function Class_Selection_Nikorev_Edition()
 local basepanel = vgui.Create( "DFrame" )
 	basepanel:SetTitle("")
@@ -110,8 +103,5 @@ surface.CreateFont("SmallBloodImpact", {
 	font = "Bloody Impact", 
 	size = 30, 
 	antialias = true,
-<<<<<<< HEAD
 })
-=======
-})
->>>>>>> parent of 65ef470... Added new stuff.
+
