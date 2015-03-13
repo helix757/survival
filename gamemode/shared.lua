@@ -5,7 +5,7 @@ end
 local function ShModules()
 	for k,v in pairs(file.Find("gamemode/*.lua", "LUA")) do
 		if string.sub(v,1,2) == "sh" then
-			print("[SV] Loaded shared module "..v)
+			Error("[SV] Loaded shared module "..v.."\n")
 			include(v)
 		end
 	end
