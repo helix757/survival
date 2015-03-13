@@ -11,24 +11,14 @@ end
 -- Can be int,string,bool etc
 function meta:SetItem(item,amt)
   self.data[item] = amt  
-  	net.Start("SendData")
-		net.WriteTable(self.data)
-	net.Send(self)
 end
 
-function meta:RemoveItemVar(item)
+function meta:RemoveItem(item)
   self.data[item] = nil
-  	net.Start("SendData")
-		net.WriteTable(self.data)
-	net.Send(self)
 end
 
 function meta:GetItemVal(item)
-	if self.data[item] == nil then
-	return 0
-	else
-	return self.data[item]
-	end
+  return self.data[item]
 end
 
 function meta:Save()
