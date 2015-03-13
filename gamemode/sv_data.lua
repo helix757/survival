@@ -8,43 +8,17 @@ function CreateSurvFolders()
 end
 hook.Add("Initialize","CreateSurvFolders",CreateSurvFolders)
 
-local function CheckForDataFile( ply )
+function CheckForDataFile( ply )
   if file.Exists("survival/"..ply:SteamID64()..".txt","DATA") then
      local json = util.JSONToTable(file.Read("survival/"..ply:SteamID64()..".txt","DATA"))
-     ply.data = json
+     if json == nil then
+		ply.data = {}
+	 else
+		ply.data = json
+	end
   else
     file.Write("survival/"..ply:SteamID64()..".txt", "")
-    ply.data = nil
+    ply.data = {}
   end
 end
 hook.Add("PlayerInitialSpawn", "Data_Check", CheckForDataFile) 
-
-local meta = FindMetaTable("Player")
-
-function meta:HasItem(item)
-  if self.data[item] != nil then
-    return true
-  else
-    return false
-  end
-end
-
--- Can be int,string,bool etc
-function meta:SetItem(item,amt)
-  self.data[item] = amt  
-end
-
-function meta:RemoveItem(item)
-  self.data[item] = nil
-end
-
-function meta:GetItemVal(item)
-  return self.data[item]
-end
-
-
-
-
-
-
-

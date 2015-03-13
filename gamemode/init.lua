@@ -21,6 +21,17 @@ end
 hook.Add("Initialize", "Cl_Modules_Hook", AddClModules) 
 
 
+local function AddShModules()
+	for k,v in pairs(file.Find("survival/gamemode/*.lua", "LUA")) do
+		if string.sub(v,1,2) == "sh" then 
+			Error("[CLI] Loaded shared module "..v.."\n")
+			AddCSLuaFile(v)
+			include(v)
+		end
+	end
+end
+AddShModules()
+
 local function AutoFastDL()
 	for k,v in pairs(file.Find("gamemode/content/*", "GAME")) do
 		resource.AddFile("gamemode/content/"..v)
