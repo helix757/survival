@@ -19,8 +19,8 @@ local blah = vgui.Create("DButton")
 		draw.RoundedBox(0, 0, 0, w, h, Color(255, 0, 0, 255) ) 
 	end
 	blah.DoClick = function()
-		player_manager.SetPlayerClass( ply, "Default" )
-		player_manager.OnPlayerSpawn( ply )
+		player_manager.SetPlayerClass( LocalPlayer(), "Default" )
+		player_manager.OnPlayerSpawn( LocalPlayer() )
 	end
 end
 net.Receive("OpenClassDerma", ClassDerma)
