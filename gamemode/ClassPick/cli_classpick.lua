@@ -1,6 +1,5 @@
 
-
-net.Receive( "OpenClassDerma", function()
+function ClassDerma()
 local Frame = vgui.Create( "DFrame" )
 	Frame:SetTitle( "Test panel" )
 	Frame:SetSize( 300, 300 )
@@ -23,4 +22,6 @@ local Button = vgui.Create("DButton", Frame)
 		player_manager.SetPlayerClass( ply, "Default" )
 		player_manager.OnPlayerSpawn( ply )
 	end
-end)
+end
+net.Receive("OpenClassDerma", ClassDerma)
+concommand.Add("class", ClassDerma)
