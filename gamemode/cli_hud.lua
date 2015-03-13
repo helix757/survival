@@ -45,6 +45,45 @@ draw.DrawText("8", "SmallBloodImpact", ScrW() - 72, ScrH() - 170, Color(255, 255
 end
 hook.Add("HUDPaint", "survival_hud", survival_hud)
 
+function survival_hud_ammo()
+
+if !LocalPlayer():Alive() then return false end
+	
+draw.RoundedBox(4, 5, ScrH() - 140, 185, 110, Color(85, 0, 0, 255)) -- Outer Box
+draw.RoundedBox(4, 10, ScrH() - 135, 175, 100, Color(170, 57, 57, 255)) -- Inner box
+
+for b=1, 10 do -- Makes blur more dense 
+		ourMat:SetFloat("$blur", Fraction)
+		ourMat:Recompute()
+		surface.SetDrawColor( 170, 57, 57, 255 )
+		surface.SetMaterial( ourMat )
+		render.UpdateFullScreenDepthTexture( )
+		render.UpdatePowerOfTwoTexture( )
+		render.UpdateRefractTexture( )
+		if ( render ) then render.UpdateScreenEffectTexture() end
+		surface.DrawTexturedRect( 10, ScrH() - 135, 175, 100 )
+	end
+	surface.SetMaterial( Material( "blurgm" ) )
+	surface.DrawTexturedRect( 10, ScrH() - 135, 175, 100 )
+
+	
+	surface.SetDrawColor( 170, 57, 57, 255 )
+	surface.SetMaterial( hex )
+	surface.DrawTexturedRect( 10, ScrH() - 135, 175, 100 )
+
+draw.DrawText("Ammo", "SmallBloodImpact", 30, ScrH() - 125, Color(255, 255, 255, 255)) -- Ammo Word
+draw.DrawText("250".."/".."200", "BigBloodImpact", 170, ScrH() - 85, Color(255, 255, 255, 255), TEXT_ALIGN_RIGHT) -- Ammo Counter
+
+-- Once guns and ammo are ready:
+/*if LocalPlayer():Clip1() != nil then
+	if LocalPlayer():Clip2() != nil then
+		draw.DrawText("LocalPlayer():Clip1()".."/"..LocalPlayer():Clip2(), "BigBloodImpact", 170, ScrH() - 85, Color(255, 255, 255, 255), TEXT_ALIGN_RIGHT) -- Ammo Counter
+	end
+end*/
+end
+hook.Add("HUDPaint", "survival_hud_ammo", survival_hud_ammo)
+
+
 local hideHUDElements = {
 	["CHudAmmo"] = true,
 	["CHudSecondaryAmmo"] = true,
