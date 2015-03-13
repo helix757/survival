@@ -40,8 +40,8 @@ draw.DrawText(LocalPlayer():GetName(), "BigBloodImpact", ScrW() - 230, ScrH() - 
 draw.DrawText("HP", "BigBloodImpact", ScrW() - 325, ScrH() - 134, Color(255, 255, 255, 255)) -- HP
 draw.DrawText("AP", "BigBloodImpact", ScrW() - 325, ScrH() - 85, Color(255, 255, 255, 255)) -- AP
 
-draw.DrawText("Wave", "SmallBloodImpact", ScrW() - 100, ScrH() - 200, Color(255, 255, 255, 255)) -- Wave
-draw.DrawText("8", "SmallBloodImpact", ScrW() - 72, ScrH() - 170, Color(255, 255, 255, 255), TEXT_ALIGN_CENTER) -- Wave number
+-- draw.DrawText("Wave", "SmallBloodImpact", ScrW() - 100, ScrH() - 200, Color(255, 255, 255, 255)) -- Wave
+-- draw.DrawText("8", "SmallBloodImpact", ScrW() - 72, ScrH() - 170, Color(255, 255, 255, 255), TEXT_ALIGN_CENTER) -- Wave number
 end
 hook.Add("HUDPaint", "survival_hud", survival_hud)
 
