@@ -9,17 +9,13 @@ local Frame = vgui.Create( "DFrame" )
 		draw.RoundedBox( 0, 0, 0, w, h, Color( 160, 160, 160, 255 ) ) -- Draw a red box instead of the frame
 	end
 		
-local Button = vgui.Create("DButton", Frame)
-	Button:SetText( "Click me I'm pretty!" )
-	Button:SetTextColor( Color(255, 255, 255) )
-	Button:SetPos( 100, 100 )
-	Button:SetSize( 100, 30 )
-	Button.Paint = function( self, w, h )
+local DButton = vgui.Create("DButton", Frame)
+	DButton:SetText( "Click me I'm pretty!" )
+	DButton:SetTextColor( Color(255, 255, 255) )
+	DButton:SetPos( 100, 100 )
+	DButton:SetSize( 100, 30 )
+	DButton.Paint = function( self, w, h )
 		draw.RoundedBox(0, 0, 0, w, h, Color(255, 0, 0, 255) ) -- Draw a blue button
-	end
-	Button.DoClick = function()
-		player_manager.SetPlayerClass( ply, "Default" )
-		player_manager.OnPlayerSpawn( ply )
 	end
 end
 net.Receive("OpenClassDerma", ClassDerma)
