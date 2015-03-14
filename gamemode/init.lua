@@ -3,7 +3,7 @@ include("shared.lua")
 function svModules()
 	for k,v in pairs(file.Find("survival/gamemode/*.lua", "LUA")) do
 		if string.sub(v,1,2) == "sv" then
-			Error("[CLI] Loaded serverside module "..v.."\n")
+			MsgC( Color(255, 0, 0), "[Survival]", Color(255, 255, 255), ": Serverside modules loaded.\n")
 			include("survival/gamemode/"..v)
 		end
 	end
@@ -13,7 +13,7 @@ svModules()
 local function AddClModules()
 	for k,v in pairs(file.Find("survival/gamemode/*.lua", "LUA")) do
 		if string.sub(v,1,3) == "cli" then
-			Error("[CLI] Loaded clientside module "..v.."\n")
+			MsgC( Color(255, 0, 0), "[Survival]", Color(255, 255, 255), ": Clientside modules loaded.\n")
 			AddCSLuaFile("survival/gamemode/"..v)
 		end
 	end
@@ -24,7 +24,7 @@ hook.Add("Initialize", "Cl_Modules_Hook", AddClModules)
 local function AddShModules()
 	for k,v in pairs(file.Find("survival/gamemode/*.lua", "LUA")) do
 		if string.sub(v,1,2) == "sh" then 
-			Error("[CLI] Loaded shared module "..v.."\n")
+			MsgC( Color(255, 0, 0), "[Survival]", Color(255, 255, 255), ": Shared modules loaded.\n")
 			AddCSLuaFile(v)
 			include(v)
 		end
