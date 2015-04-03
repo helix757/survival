@@ -1,7 +1,9 @@
 "survival"
 {
 	"base"		"base"
-    "title"  "Survival"
+    "title"  	"Survival"
+	"maps"		""
+	"menusystem" "1"
     "version"   "Dev Build 1.0"
 
     "author_name"   "Nikorev, Helix, SPD Best"

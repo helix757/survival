@@ -1,5 +1,6 @@
 local ourMat = Material( "blurgm" )
 local hex = Material( "materials/heaxagon_pattern_v2.png" )
+
 function survival_hud()
 
 if !LocalPlayer():Alive() then return false end
@@ -77,16 +78,40 @@ for b=1, 10 do -- Makes blur more dense
 	surface.DrawTexturedRect( 10, ScrH() - 115, 175, 100 )
 
 draw.DrawText("Ammo", "SmallBloodImpact", 30, ScrH() - 105, Color(255, 255, 255, 255)) -- Ammo Word
-draw.DrawText("250".."/".."200", "BigBloodImpact", 170, ScrH() - 65, Color(255, 255, 255, 255), TEXT_ALIGN_RIGHT) -- Ammo Counter
+//draw.DrawText("250".."/".."200", "BigBloodImpact", 170, ScrH() - 65, Color(255, 255, 255, 255), TEXT_ALIGN_RIGHT) -- Ammo Counter
 
 -- Once guns and ammo are ready:
-/*if LocalPlayer():Clip1() != nil then
-	if LocalPlayer():Clip2() != nil then
-		draw.DrawText("LocalPlayer():Clip1()".."/"..LocalPlayer():Clip2(), "BigBloodImpact", 170, ScrH() - 65, Color(255, 255, 255, 255), TEXT_ALIGN_RIGHT) -- Ammo Counter
+if LocalPlayer():GetActiveWeapon() != nil then
+if LocalPlayer():GetActiveWeapon():Clip1() != nil then
+	if LocalPlayer():GetActiveWeapon():Clip2() != nil then
+		if LocalPlayer():GetActiveWeapon():Clip2() == -1 then
+			draw.DrawText(LocalPlayer():GetActiveWeapon():Clip1().."/0", "BigBloodImpact", 170, ScrH() - 65, Color(255, 255, 255, 255), TEXT_ALIGN_RIGHT) -- Ammo Counter
+		else
+			draw.DrawText(LocalPlayer():GetActiveWeapon():Clip1().."/"..LocalPlayer():GetActiveWeapon():Clip2(), "BigBloodImpact", 170, ScrH() - 65, Color(255, 255, 255, 255), TEXT_ALIGN_RIGHT) -- Ammo Counter
+		end
 	end
-end*/
+end
+end
 end
 hook.Add("HUDPaint", "survival_hud_ammo", survival_hud_ammo)
+
+function crosshair()
+	
+	surface.SetDrawColor(Color(0, 0, 0, 255))
+	surface.DrawLine( ScrW() / 2 + 15, ScrH() / 2 + 15, ScrW() / 2 + 20, ScrH() / 2 ) -- RIGHT HEX TOP
+	surface.DrawLine( ScrW() / 2 + 15, ScrH() / 2 - 15, ScrW() / 2 + 20, ScrH() / 2 ) -- RIGHT HEX BOTTOM
+	surface.DrawLine( ScrW() / 2 + 15, ScrH() / 2 + 15, ScrW() / 2 - 15, ScrH() / 2 + 15 ) -- TOP LINE HEX
+	surface.DrawLine( ScrW() / 2 + 15, ScrH() / 2 - 15, ScrW() / 2 - 15, ScrH() / 2 - 15 ) -- BOTTOM LINE HEX
+	surface.DrawLine( ScrW() / 2 - 15, ScrH() / 2 + 15, ScrW() / 2 - 20, ScrH() / 2 ) -- LEFT HEX TOP
+	surface.DrawLine( ScrW() / 2 - 15, ScrH() / 2 - 15, ScrW() / 2 - 20, ScrH() / 2 ) -- LEFT HEX BOTTOM
+	
+	surface.DrawLine( ScrW() / 2 + 15, ScrH() / 2, ScrW() / 2 + 25, ScrH() / 2 ) -- RIGHT LINE
+	surface.DrawLine( ScrW() / 2 - 15, ScrH() / 2, ScrW() / 2 - 25, ScrH() / 2 ) -- LEFT LINE
+	surface.DrawLine( ScrW() / 2, ScrH() / 2 - 10, ScrW() / 2, ScrH() / 2 - 20) -- TOP LINE
+	surface.DrawLine( ScrW() / 2, ScrH() / 2 + 10, ScrW() / 2, ScrH() / 2 + 20) -- BOTTOM LINE
+
+end
+hook.Add("HUDPaint", "crosshair", crosshair)
 
 
 local hideHUDElements = {
@@ -94,6 +119,7 @@ local hideHUDElements = {
 	["CHudSecondaryAmmo"] = true,
 	["CHudBattery"] = true, 
 	["CHudHealth"] = true, 
+	["CHudCrosshair"] = true, 
 	
 }
 
