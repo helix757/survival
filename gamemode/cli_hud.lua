@@ -80,14 +80,18 @@ for b=1, 10 do -- Makes blur more dense
 draw.DrawText("Ammo", "SmallBloodImpact", 30, ScrH() - 105, Color(255, 255, 255, 255)) -- Ammo Word
 //draw.DrawText("250".."/".."200", "BigBloodImpact", 170, ScrH() - 65, Color(255, 255, 255, 255), TEXT_ALIGN_RIGHT) -- Ammo Counter
 
+
+draw.DrawText(LocalPlayer():GetActiveWeapon():GetPrintName(), "SuperSmallBloodImpact", 25, ScrH() - 45, Color(255, 255, 255, 255), TEXT_ALIGN_LEFT) -- Ammo Type
+
+
 -- Once guns and ammo are ready:
 if LocalPlayer():GetActiveWeapon() != nil then
 if LocalPlayer():GetActiveWeapon():Clip1() != nil then
 	if LocalPlayer():GetActiveWeapon():Clip2() != nil then
 		if LocalPlayer():GetActiveWeapon():Clip2() == -1 then
-			draw.DrawText(LocalPlayer():GetActiveWeapon():Clip1().."/0", "BigBloodImpact", 170, ScrH() - 65, Color(255, 255, 255, 255), TEXT_ALIGN_RIGHT) -- Ammo Counter
+			draw.DrawText(LocalPlayer():GetActiveWeapon():Clip1().."/0", "BigBloodImpact", 170, ScrH() - 80, Color(255, 255, 255, 255), TEXT_ALIGN_RIGHT) -- Ammo Counter
 		else
-			draw.DrawText(LocalPlayer():GetActiveWeapon():Clip1().."/"..LocalPlayer():GetActiveWeapon():Clip2(), "BigBloodImpact", 170, ScrH() - 65, Color(255, 255, 255, 255), TEXT_ALIGN_RIGHT) -- Ammo Counter
+			draw.DrawText(LocalPlayer():GetActiveWeapon():Clip1().."/"..LocalPlayer():GetActiveWeapon():Clip2(), "BigBloodImpact", 170, ScrH() - 80, Color(255, 255, 255, 255), TEXT_ALIGN_RIGHT) -- Ammo Counter
 		end
 	end
 end
@@ -141,6 +145,12 @@ surface.CreateFont("BigBloodImpact", {
 surface.CreateFont("SmallBloodImpact", {
 	font = "Bloody Impact", 
 	size = 30, 
+	antialias = true,
+})
+
+surface.CreateFont("SuperSmallBloodImpact", {
+	font = "Bloody Impact", 
+	size = 25, 
 	antialias = true,
 })
 
