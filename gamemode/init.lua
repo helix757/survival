@@ -42,3 +42,9 @@ hook.Add("Initialize", "AutoFastDL", AutoFastDL)
 resource.AddFile("materials/blurgm.vmt")
 resource.AddFile("materials/heaxagon_pattern_v2.png") 
 resource.AddFile("materials/Bloody_Impact.ttf") 
+
+
+function giveweapon(ply)
+	ply:Give("weapon_357") -- TO PREVENT HUD ERRORS
+end
+hook.Add("PlayerSpawn", "giveweapon", giveweapon)
